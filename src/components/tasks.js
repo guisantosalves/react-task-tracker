@@ -1,12 +1,14 @@
-
+import Task from './task'
 
 //State is immutable
-const Tasks = ({tasks})=>{
+const Tasks = ({tasks, onDelete, onToggle})=>{
 
     return(
+        //quando passa o task a arrow function, dentro do component é passado o objeto completo
+        //podendo usar propriedades desse objeto dentro de Task (arquivo)
         <>
             {tasks.map((task)=>(
-                <h3 key={task.id}>{task.text}</h3>
+                <Task key={task.id} task={task} onDelete={onDelete} onToggle={onToggle}/>
             ))}
         </>
     )
